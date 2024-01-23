@@ -5,7 +5,7 @@ const dotenv=require('dotenv')
 const mongoose=require('mongoose')
 //const image=require('./Route/imageRoute');
 const folder=require('./Route/folderRoute')
-//const cors = require('cors');
+const cors = require('cors');
 app.use(express.json())
 dotenv.config();
 
@@ -14,7 +14,7 @@ mongoose.connect(process.env.MONGO_URL, {
   useUnifiedTopology: true,
 }).then(() => { console.log("database connected successfully done") })
 //app.use('/uploads', express.static('uploads'));
-//app.use(cors())
+app.use(cors())
 //app.use('/api/v1',image);
 app.use('/api/v1',folder);
 
